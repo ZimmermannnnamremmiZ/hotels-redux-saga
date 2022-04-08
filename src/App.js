@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import {  getHotels } from "./redux/actions/actionCreator";
 
-import Button from "./components/button/Button";
+import FindHotelsForm from "./components/forms/findHotelsForm/FindHotelsForm";
+// import Button from "./components/button/Button";
 import heart from './components/svg/heart/img/heart.svg';
-import LoginForm from "./components/loginForm/LoginForm";
+import LoginForm from "./components/forms/loginForm/LoginForm";
 
 // increaseCount, decreaseCount,
 
@@ -17,9 +18,8 @@ const App = () => {
 
   return(
     <div className="container">
-      <img src={heart} alt="favorite" />
-      <LoginForm />
-      <Button inner={'Войти'}/>
+      {/* <LoginForm /> */}
+      <FindHotelsForm />
       <button onClick={handleHotels}>Get Hotels</button>
     </div>
   );

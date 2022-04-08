@@ -9,7 +9,7 @@ import { setHotels } from '../actions/actionCreator';
 // }
 
 export function* handleHotels() {
-  const data = yield call(getHotels, 'moscow');
+  const data = yield call(getHotels, 'Москва');
   yield put(setHotels(data.results.locations))
 }
 
