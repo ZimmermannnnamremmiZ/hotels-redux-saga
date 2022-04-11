@@ -9,9 +9,11 @@ import { setHotels } from '../actions/actionCreator';
 // }
 
 export function* handleHotels() {
-  const data = yield call(getHotels, 'Москва');
-  yield put(setHotels(data.results.locations))
+  const data = yield call(getHotels, 'Москва', '2020-12-10', '2020-12-12'); // call - блокирующий эффект (fork - неблокирующий)
+  yield put(setHotels(data))
 }
+
+//.locations
 
 export function* watchClickSaga() {
   yield takeLatest(GET_HOTELS, handleHotels);

@@ -1,20 +1,44 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
+import { setSearchData } from "../../../redux/actions/actionCreator";
 import './findHotelsForm.scss';
 import Button from '../../button/Button';
 import Input from '../../input/Input';
 
+
 const FindHotelsForm = () => {
-    const state = useSelector(state => state)
-    
+    const data = useSelector(state => state.searchData)
+
+    const dispatch = useDispatch();
+
+    const handleSearchData = (name , value) => {
+      dispatch(setSearchData({[name]: value}));
+    };
+
+
     return (
             <form>
-                <Input type={'text'} name={'Локация'} value={state.request.city}/>
-                <Input type={'date'} name={'Дата заселения'} value={state.request.date}/>
-                <Input type={'text'} name={'Количество дней'} value={state.request.days}/>
+                <Input  type={'text'}
+                        stateKey={'city'}
+                        name={'Локация'}
+                        defaultValue={data.city}
+                        handleSearchData={handleSearchData}/>
+
+                <Input  type={'date'}
+                        stateKey={'date'}
+                        name={'Дата заселения'}
+                        defaultValue={data.date}
+                        handleSearchData={handleSearchData}/>
+
+                <Input  type={'text'}
+                        stateKey={'days'}
+                        name={'Количество дней'}
+                        defaultValue={data.days}
+                        handleSearchData={handleSearchData}/>
+
                 <Button inner={'Найти'}/>
+
             </form>
     )
 }
-
 export default FindHotelsForm;

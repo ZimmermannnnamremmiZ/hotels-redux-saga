@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {  getHotels } from "./redux/actions/actionCreator";
+import { getHotels } from "./redux/actions/actionCreator";
 
 import FindHotelsForm from "./components/forms/findHotelsForm/FindHotelsForm";
 // import Button from "./components/button/Button";

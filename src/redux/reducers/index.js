@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import hotels from './hotels';
-import request from './request';
+import searchData from './searchData';
 
 const reducer = combineReducers({
   hotels,
-  request
+  searchData
 });
 
 export default reducer;

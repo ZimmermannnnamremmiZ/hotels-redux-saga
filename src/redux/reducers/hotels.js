@@ -1,7 +1,6 @@
 import { SET_HOTELS } from "../constants";
 
 const initialState = {
-  hotelsData: {},
 };
 
 const hotels = (state = initialState, { type, payload}) => {
@@ -9,7 +8,7 @@ const hotels = (state = initialState, { type, payload}) => {
     case SET_HOTELS:
       return {
         ...state,
-        hotelsData: {...state.hotelsData, ...payload}
+        ...payload
       }
       default: return state;
   }

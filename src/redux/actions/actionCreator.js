@@ -1,4 +1,4 @@
-import { GET_HOTELS, SET_HOTELS, SET_REQUEST } from "../constants";
+import { GET_HOTELS, SET_HOTELS, SET_SEARCH_DATA } from "../constants";
 
 export const getHotels = () => ({
   type: GET_HOTELS,
@@ -10,7 +10,7 @@ export const setHotels = (payload) => ({
 });
 
 
-// export const setRequest = (payload) => ({
-//   type: SET_REQUEST,
-//   payload,
-// });
+export const setSearchData = (payload) => ({
+  type: SET_SEARCH_DATA,
+  payload,
+});
