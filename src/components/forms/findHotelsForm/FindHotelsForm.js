@@ -27,7 +27,7 @@ const FindHotelsForm = () => {
                 <Input  type={'date'}
                         stateKey={'date'}
                         name={'Дата заселения'}
-                        defaultValue={data.date}
+                        defaultValue={data.checkIn}
                         handleSearchData={handleSearchData}/>
 
                 <Input  type={'text'}

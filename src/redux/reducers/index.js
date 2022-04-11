@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import hotels from './hotels';
+import location from './location';
 import searchData from './searchData';
+import hotels from './hotels';
 
 const reducer = combineReducers({
+  location,
   hotels,
   searchData
 });
