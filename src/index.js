@@ -6,6 +6,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 
+// для FindHotelsForm
+Date.prototype.addDays = function(days) {
+  const date = new Date(this.valueOf());
+  date.setDate(date.getDate() + days);
+  return date;
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
