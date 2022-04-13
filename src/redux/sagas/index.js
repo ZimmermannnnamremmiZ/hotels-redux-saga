@@ -1,7 +1,8 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects';
-import { GET_LOCATION, GET_HOTELS } from '../constants';
-import { getLocation, getHotels } from '../../api/index';
-import { setLocation, setHotels } from '../actions/actionCreator';
+import { GET_HOTELS } from '../constants';
+import { getHotels } from '../../api/index';
+import { setHotels } from '../actions/actionCreator';
+import dateApiFormat from '../../date';
 
 // export function* handleHotels() {
 //   const data = yield getHotels();
@@ -9,19 +10,13 @@ import { setLocation, setHotels } from '../actions/actionCreator';
 // }
 
 export function* handleHotels() {
-  const city = yield select(({searchData}) => searchData.city)
-  const checkIn = yield select(({searchData}) => searchData.checkIn)
-  const checkOut = yield select(({searchData}) => searchData.checkOut)
-  // const days = yield select(({searchData}) => `${searchData.days}`)
-  const hotels = yield call(getHotels, city, checkIn, checkOut); // call - блокирующий эффект (fork - неблокирующий)
-  // const id = yield locationData?.results?.locations[0].id
+  const {city, checkIn, checkOut} = yield select(({searchData}) => searchData)
+  const hotels = yield call(getHotels, city, dateApiFormat(checkIn), dateApiFormat(checkOut)); // call - блокирующий эффект (fork - неблокирующий)
   yield put(setHotels(hotels))
-  // const hotelsData = yield call(getHotels, id, '2022-04-22', '2022-04-30');
-  // yield put(setHotels(hotelsData))
 }
 
 export function* watchClickSaga() {
-  yield takeLatest(GET_LOCATION, handleHotels);
+  yield takeLatest(GET_HOTELS, handleHotels);
 }
 
 export default function* rootSaga() {

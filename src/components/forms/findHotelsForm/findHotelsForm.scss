@@ -3,9 +3,11 @@ form {
     display: flex;
     flex-direction: column;
     height: 410px;
-    width: 360px;
-    background-color: #fff;
+    width: 34.352%;
     padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
 
     .inputBlock{
         label {

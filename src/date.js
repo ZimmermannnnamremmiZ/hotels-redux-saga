@@ -1,5 +1,5 @@
-const dateFormat = (date) => {
+const dateApiFormat = (date) => {
     return date.toLocaleString().slice(0, 10).split('.').reverse().join('-')
 }
 
-export default dateFormat;
+export default dateApiFormat;

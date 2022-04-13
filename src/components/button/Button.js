@@ -1,8 +1,8 @@
 import './button.scss'
 
-const Button = ({inner}) => {
+const Button = ({inner, onClicked}) => {
   return(
-    <button className='button'>{inner}</button>
+    <button className='button' onClick={onClicked}>{inner}</button>
   )
 }
 

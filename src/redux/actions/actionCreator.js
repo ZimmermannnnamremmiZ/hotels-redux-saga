@@ -1,13 +1,4 @@
-import { GET_LOCATION, GET_HOTELS, SET_LOCATION, SET_HOTELS, SET_SEARCH_DATA } from "../constants";
-
-export const getLocation = () => ({
-  type: GET_LOCATION,
-});
-
-export const setLocation = (payload) => ({
-  type: SET_LOCATION,
-  payload,
-});
+import { GET_HOTELS, SET_HOTELS, SET_SEARCH_DATA } from "../constants";
 
 export const getHotels = () => ({
   type: GET_HOTELS,

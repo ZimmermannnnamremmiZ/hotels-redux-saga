@@ -1,0 +1,25 @@
+.hotelItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hotelItem {
+    font-family: 'Roboto';
+    font-style: normal;
+
+    &__name {
+        font-weight: 300;
+        font-size: 17px;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        color: #424242;
+    }
+
+    &__date, &__days {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: -0.408px;
+        color: #878787;
+    }
+}
