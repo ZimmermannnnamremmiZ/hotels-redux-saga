@@ -1,6 +1,7 @@
 body {
   position: absolute;
-  width: 100vw;
+  width: 100%;
+  min-height: 100%;
   background-image: url(./img/background.png);
   background-attachment: fixed;
   background-size: cover;
@@ -24,4 +25,24 @@ code {
   padding-top: 92px;
   display: flex;
   justify-content: space-between;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotelsBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 63.36%;
+  height: 902px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 33px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
 }

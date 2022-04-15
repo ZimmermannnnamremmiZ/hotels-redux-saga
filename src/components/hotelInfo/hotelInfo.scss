@@ -1,13 +1,30 @@
-.hotelItem {
-    display: flex;
-    justify-content: space-between;
+.hyphen {
+    height: 1px;
+    width: 9px;
+    background-color: #878787;
+    margin: 10px;
+    margin-left: 20px;
 }
 
 .hotelItem {
+    width: 584px;
     font-family: 'Roboto';
     font-style: normal;
+    display: flex;
+    justify-content: space-between;
+
+    &__leftSide {
+        margin-left: 24px;
+        max-width: 385px;
+    }
+
+    &__rightSide {
+        position: absolute;
+        right: 30px;
+    }
 
     &__name {
+        margin: 0;
         font-weight: 300;
         font-size: 17px;
         line-height: 22px;
@@ -16,10 +33,15 @@
     }
 
     &__date, &__days {
+        margin: 0;
         font-weight: 400;
         font-size: 14px;
         line-height: 22px;
         letter-spacing: -0.408px;
         color: #878787;
+    }
+
+    &__heart {
+        margin-left: 25px;
     }
 }

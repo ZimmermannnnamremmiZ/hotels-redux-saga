@@ -16,15 +16,19 @@ const FindHotelsForm = () => {
 
     const handleHotels = (e) => {
         dispatch(getHotels());
-      };
+    };
+
+    useEffect(() => {
+        handleHotels();
+    }, [])
 
     const handleSearchData = (name , value) => {
         if (name === 'days') {
-                dispatch(setSearchData({
-                    days: value,
-                    checkOut: checkIn.addDays(+value)
-                }))
-                dispatch(getHotels())
+            dispatch(setSearchData({
+                days: value,
+                checkOut: checkIn.addDays(+value)
+            }))
+            dispatch(getHotels())
         } else if (name === 'checkIn') {
             dispatch(setSearchData({
                 checkIn: new Date(value),
@@ -34,32 +38,28 @@ const FindHotelsForm = () => {
         else {dispatch(setSearchData({[name]: value}))};
     };
 
-    useEffect(() => {
-        handleHotels();
-    }, [])
-
     return (
-            <form onSubmit={(e) => e.preventDefault()}>
-                <Input  type={'text'}
-                        stateKey={'city'}
-                        name={'Локация'}
-                        defaultValue={city}
-                        handleSearchData={handleSearchData}/>
+        <form onSubmit={(e) => e.preventDefault()}>
+            <Input  type={'text'}
+                    stateKey={'city'}
+                    name={'Локация'}
+                    defaultValue={city}
+                    handleSearchData={handleSearchData}/>
 
-                <Input  type={'date'}
-                        stateKey={'checkIn'}
-                        name={'Дата заселения'}
-                        defaultValue={dateApiFormat(checkIn)}
-                        handleSearchData={handleSearchData}/>
+            <Input  type={'date'}
+                    stateKey={'checkIn'}
+                    name={'Дата заселения'}
+                    defaultValue={dateApiFormat(checkIn)}
+                    handleSearchData={handleSearchData}/>
 
-                <Input  type={'text'}
-                        stateKey={'days'}
-                        name={'Количество дней'}
-                        defaultValue={days}
-                        handleSearchData={handleSearchData}/>
+            <Input  type={'text'}
+                    stateKey={'days'}
+                    name={'Количество дней'}
+                    defaultValue={days}
+                    handleSearchData={handleSearchData}/>
 
-                <Button inner={'Найти'} onClicked={handleHotels}/>
-            </form>
+            <Button inner={'Найти'} onClicked={handleHotels}/>
+        </form>
     )
 }
 export default FindHotelsForm;

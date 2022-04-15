@@ -4,11 +4,6 @@ import { getHotels } from '../../api/index';
 import { setHotels } from '../actions/actionCreator';
 import dateApiFormat from '../../date';
 
-// export function* handleHotels() {
-//   const data = yield getHotels();
-//   yield put(setHotels(data.results.locations))
-// }
-
 export function* handleHotels() {
   const {city, checkIn, checkOut} = yield select(({searchData}) => searchData)
   const hotels = yield call(getHotels, city, dateApiFormat(checkIn), dateApiFormat(checkOut)); // call - блокирующий эффект (fork - неблокирующий)
