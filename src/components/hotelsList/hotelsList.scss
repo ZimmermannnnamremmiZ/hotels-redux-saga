@@ -1,9 +1,53 @@
-.hotelInfo {
-    height: 529px;
-    width: 87.952%;
-    overflow: scroll;
-    bottom: 52px;
-    overflow-x: hidden;
+    .header {
+        justify-content: space-between;
+        width: 90.06%;
+
+        &__left {
+            margin-top: 48px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 32px;
+            line-height: 38px;
+            color: #424242;
+
+            span:nth-child(2) {
+                margin-left: 20px;
+
+                &:before {
+                    content: url('../../img/Vector.svg');
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        &__right {
+            margin-top: 53px;
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 28px;
+            color: #41522E;
+        }
+    }
+
+    .hotelInfo {
+        height: 529px;
+        width: 90.06%;
+        overflow: scroll;
+        bottom: 52px;
+        overflow-x: hidden;
+
+
+    hr {
+        width: 97.586%;
+        margin: 0;
+        background: rgba(135, 135, 135, 0.2);
+        border-radius: 8px;
+        transform: matrix(1, 0, 0, -1, 0, 0);
+    }
+
     &::-webkit-scrollbar-track {
         background: rgb(0,0,0);
         border: 4px solid transparent;
@@ -11,7 +55,7 @@
     }
     &::-webkit-scrollbar {
         width: 2px;
-        
+
     }
     &::-webkit-scrollbar-thumb {
         background-color: #000000;
