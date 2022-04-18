@@ -19,7 +19,7 @@
     }
 
     &__rightSide {
-        position: absolute;
+        position: relative;
         right: 30px;
     }
 
@@ -42,10 +42,13 @@
     }
 
     &__heart {
-        margin-left: 60px;
+        position: absolute;
+        right: 0;
     }
 
     &__price {
+
+        margin-top: 42px;
 
         &::before {
             margin-right: 18px;

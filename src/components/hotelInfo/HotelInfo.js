@@ -1,10 +1,17 @@
+import { useState } from 'react';
+
 import ReactStars from 'react-stars';
 
-import favorites from '../../img/heart.svg'
+import favorites from '../../img/heart.svg';
+import favorites_actv from '../../img/heart-active.svg';
+
 import './hotelInfo.scss';
 
-const HotelInfo = ({name, checkIn, days, price, stars}) => {
+const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavorite}) => {
 
+    const [active, setActive] = useState(false)
+    
+    // для склонения слов (день, дня, дней)
     function getNoun(number, one, two, five) {
         let n = Math.abs(number);
         n %= 100;
@@ -19,7 +26,7 @@ const HotelInfo = ({name, checkIn, days, price, stars}) => {
           return two;
         }
         return five;
-    }
+    } 
 
     return(
         <div className="hotelItem">
@@ -38,12 +45,13 @@ const HotelInfo = ({name, checkIn, days, price, stars}) => {
                                     color2={"#CDBC1E"}
                                     value={stars}
                                     size={24} />
-
                     </div>
             </div>
 
             <div className="hotelItem__rightSide">
-                <img className="hotelItem__heart" src={favorites} alt="favorites" />
+                {!active ? 
+                    <img className="hotelItem__heart" src={favorites} alt="favorites" onClick={() => {toFavorite(id); setActive(true)}} /> : 
+                    <img className="hotelItem__heart" src={favorites_actv} alt="favorites active" onClick={() => {fromFavorite(id); setActive(false)}} />}
                 <p className="hotelItem__price">{Math.ceil(price).toLocaleString()} ₽</p>
             </div>
         </div>

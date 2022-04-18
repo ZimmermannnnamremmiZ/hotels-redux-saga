@@ -5,7 +5,7 @@ import { setSearchData, getHotels } from "../../../redux/actions/actionCreator";
 import Button from '../../button/Button';
 import Input from '../../input/Input';
 
-import dateApiFormat from "../../../date";
+import dateApiFormat from "../../../auxiliary_fn/date_api";
 import './findHotelsForm.scss';
 
 
