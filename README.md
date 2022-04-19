@@ -1,8 +1,12 @@
-# Проект ещё в разработке
-
 <img src="https://user-images.githubusercontent.com/69976961/163959697-377707c3-220c-4361-a1b5-9425835a5ef9.png" width="200" height="200">
 
+## Web приложение (SPA) для поиска отелей (тестовое задание из собеседования)
 
+Используемый стек технологий: React + Redux-saga + React Router
+
+<hr />
+<hr />
+<hr />
 In the project directory, you can run:
 
 ### `npm start`
