@@ -4,6 +4,8 @@
 
 Используемый стек технологий: React + Redux-saga + React Router
 
+Само задание: [Тестовое для Frontend-разработчика (junior).pdf](https://github.com/ZimmermannnnamremmiZ/hotels-redux-saga/files/8511599/Frontend-.junior.pdf)
+
 <hr />
 <hr />
 <hr />
