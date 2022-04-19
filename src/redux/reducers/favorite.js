@@ -1,15 +1,16 @@
-import { SET_FAVORITE } from "../constants";
+import { SET_FAVORITE, FILTER_FAVORITE } from "../constants";
 
-const initialState = {
-};
-
-const favorite = (state = initialState, {type, payload}) => {
+const favorite = (state = {}, {type, payload}) => {
   switch (type) {
     case SET_FAVORITE:
       return{
         ...state,
         ...payload
       }
+    case FILTER_FAVORITE :
+        return {
+          ...payload
+        }
       default: return state;
   }
 };

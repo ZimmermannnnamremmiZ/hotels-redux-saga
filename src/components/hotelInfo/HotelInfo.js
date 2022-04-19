@@ -7,9 +7,7 @@ import favorites_actv from '../../img/heart-active.svg';
 
 import './hotelInfo.scss';
 
-const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavorite}) => {
-
-    const [active, setActive] = useState(false)
+const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavorite, isActive}) => {
     
     // для склонения слов (день, дня, дней)
     function getNoun(number, one, two, five) {
@@ -26,7 +24,7 @@ const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavor
           return two;
         }
         return five;
-    } 
+    }
 
     return(
         <div className="hotelItem">
@@ -39,7 +37,6 @@ const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavor
                             <p className="hotelItem__days">{days} {getNoun(days, 'день', 'дня', 'дней')}</p>
                         </div>
                         <ReactStars count={5}
-                                    // onChange={ratingChanged}
                                     edit={false}
                                     color1={"#6C6845"}
                                     color2={"#CDBC1E"}
@@ -49,13 +46,14 @@ const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavor
             </div>
 
             <div className="hotelItem__rightSide">
-                {!active ? 
-                    <img className="hotelItem__heart" src={favorites} alt="favorites" onClick={() => {toFavorite(id); setActive(true)}} /> : 
-                    <img className="hotelItem__heart" src={favorites_actv} alt="favorites active" onClick={() => {fromFavorite(id); setActive(false)}} />}
+                
+                    {/* // !active ?  */}
+                        <img className="hotelItem__heart" src={isActive === false ? favorites : favorites_actv} alt="favorites" onClick={isActive === false ? () => toFavorite(id) : () => fromFavorite(id)} />
+                        {/* // <img className="hotelItem__heart" src={favorites_actv} alt="favorites active" onClick={() => {fromFavorite(id); setActive(false)}} /> */}
+                
                 <p className="hotelItem__price">{Math.ceil(price).toLocaleString()} ₽</p>
             </div>
         </div>
-        
     )
 }
 

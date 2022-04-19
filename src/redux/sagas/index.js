@@ -7,7 +7,10 @@ import dateApiFormat from '../../auxiliary_fn/date_api';
 export function* handleHotels() {
   const {city, checkIn, checkOut} = yield select(({searchData}) => searchData)
   const hotels = yield call(getHotels, city, dateApiFormat(checkIn), dateApiFormat(checkOut)); // call - блокирующий эффект (fork - неблокирующий)
-  yield put(setHotels(hotels))
+  yield put(setHotels(hotels.map(el => {
+    el.isActive = false;
+    return el
+  })))
 }
 
 export function* watchClickSaga() {

@@ -8,6 +8,7 @@
 
 .hotelItem {
     width: 584px;
+    height: 100px;
     font-family: 'Roboto';
     font-style: normal;
     display: flex;
@@ -43,12 +44,13 @@
 
     &__heart {
         position: absolute;
+        top: 5px;
         right: 0;
     }
 
     &__price {
-
-        margin-top: 42px;
+        
+        margin-top: 50px;
 
         &::before {
             margin-right: 18px;

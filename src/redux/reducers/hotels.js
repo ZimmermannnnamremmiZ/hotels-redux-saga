@@ -1,9 +1,7 @@
 import { SET_HOTELS } from "../constants";
 
-const initialState = {
-};
-
-const hotels = (state = initialState, { type, payload}) => {
+const hotels = (state = {
+}, {type, payload}) => {
   switch (type) {
     case SET_HOTELS:
       return {
