@@ -14,7 +14,7 @@ const FindHotelsForm = () => {
     const {city, checkIn, days} = useSelector(state => state.searchData);
     const dispatch = useDispatch();
 
-    const handleHotels = (e) => {
+    const handleHotels = () => {
         dispatch(getHotels());
     };
 
