@@ -1,6 +1,7 @@
 import { useSelector, useDispatch} from "react-redux";
 import { setFavorite, setFiltered, setHotels } from "../../redux/actions/actionCreator";
 
+import getNoun from "../../auxiliary_fn/getNoun";
 import dateFullFormat from "../../auxiliary_fn/date_text";
 import Carousel from "../carousel/Carousel";
 import HotelInfo from '../hotelInfo/HotelInfo';
@@ -10,19 +11,19 @@ import './hotelsList.scss';
 const HotelsList = () => {
     const dispatch = useDispatch()
 
-    const hotelsList = useSelector(state => state.hotels);
+    const hotelsList = useSelector(state => Object.values(state.hotels));
     const formInputs = useSelector(state => state.searchData);
-    const favorite = useSelector(state => state.favorite)
-    
+    const favorite = useSelector(state => Object.values(state.favorite))
+
     const toFavorite = (id) => {
-        const favItem = Object.values(hotelsList).find(el => el.hotelId === id)
+        const favItem = hotelsList.find(el => el.hotelId === id)
         favItem.isActive = true;
         dispatch(setFavorite({[favItem.hotelId]: favItem}))
     }
 
     const fromFavorite = (id) => {
-        const filtered = Object.values(favorite).filter(el => el.hotelId !== id);
-        const selected = Object.values(hotelsList).find(el => el.hotelId === id); 
+        const filtered = favorite.filter(el => el.hotelId !== id);
+        const selected = hotelsList.find(el => el.hotelId === id);
         selected.isActive = false;
         dispatch(setFiltered(filtered));
         // dispatch(setHotels(selected))
@@ -30,14 +31,15 @@ const HotelsList = () => {
 
     return(
         <>
-            <div className="header flex-row">
-                <div className="header__left flex-row">
+            <div className="hotelsBlock__header flex-row">
+                <div className="hotelsBlock__header-left flex-row">
                     <span>Отели</span>
                     <span>{formInputs.city}</span>
                 </div>
-                <span className="header__right">{dateFullFormat(formInputs.checkIn)}</span>
+                <span className="hotelsBlock__header-right">{dateFullFormat(formInputs.checkIn)}</span>
             </div>
             <Carousel />
+            <p style={favorite.length > 0 ? {"visibility": "visible"} : {"visibility": "hidden"}} className="favoriteLength">Добавлено в Избранное: <b>{favorite.length}</b> {getNoun(favorite.length, 'отель', 'отеля', 'отелей')}</p>
             <div className="hotelInfo">
                 {Object.values(hotelsList).map(el => {
                     return  <div key={el.hotelId}>

@@ -44,12 +44,32 @@
 
     &__heart {
         position: absolute;
+        background-image: url('../../img/heart.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
         top: 5px;
         right: 0;
+        width: 23px;
+        height: 19px;
+
+        &:hover {
+            background-image: url('../../img/heart-hover.svg');
+        };
+
+        &-active {
+            position: absolute;
+            background-image: url('../../img/heart-active.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            top: 5px;
+            right: 0;
+            width: 23px;
+            height: 19px;
+        }
     }
 
     &__price {
-        
+
         margin-top: 50px;
 
         &::before {

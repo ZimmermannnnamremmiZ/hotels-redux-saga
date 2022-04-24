@@ -1,32 +1,12 @@
 import { useSelector } from 'react-redux';
-
 import ReactStars from 'react-stars';
 
-import favorites from '../../img/heart.svg';
-import favorites_actv from '../../img/heart-active.svg';
-
+import getNoun from '../../auxiliary_fn/getNoun';
 import './hotelInfo.scss';
 
 const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavorite, isActive}) => {
 
     const favoriteList = useSelector(state => state.favorite)
-    
-    // для склонения слов (день, дня, дней)
-    function getNoun(number, one, two, five) {
-        let n = Math.abs(number);
-        n %= 100;
-        if (n >= 5 && n <= 20) {
-          return five;
-        }
-        n %= 10;
-        if (n === 1) {
-          return one;
-        }
-        if (n >= 2 && n <= 4) {
-          return two;
-        }
-        return five;
-    }
 
     return(
         <div className="hotelItem">
@@ -48,9 +28,9 @@ const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavor
             </div>
 
             <div className="hotelItem__rightSide">
-                        <img className="hotelItem__heart" src={ isActive && favoriteList.id !== id ? favorites_actv : favorites}
-                                                          onClick={!isActive ? () => toFavorite(id) : () => fromFavorite(id)}
-                                                          alt="favorites" />
+                <div className={isActive && favoriteList.id !== id ? "hotelItem__heart-active" : "hotelItem__heart"}
+                     onClick={!isActive ? () => toFavorite(id) : () => fromFavorite(id)}
+                />
                 <p className="hotelItem__price">{Math.ceil(price).toLocaleString()} ₽</p>
             </div>
         </div>

@@ -1,34 +1,37 @@
-    .header {
-        justify-content: space-between;
-        width: 90.06%;
+    .hotelsBlock {
 
-        &__left {
-            margin-top: 48px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 32px;
-            line-height: 38px;
-            color: #424242;
+        &__header {
+            justify-content: space-between;
+            width: 90.06%;
 
-            span:nth-child(2) {
-                margin-left: 20px;
+            &-left {
+                margin-top: 48px;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 32px;
+                line-height: 38px;
+                color: #424242;
 
-                &:before {
-                    content: url('../../img/Vector.svg');
-                    margin-right: 20px;
+                span:nth-child(2) {
+                    margin-left: 20px;
+
+                    &:before {
+                        content: url('../../img/Vector.svg');
+                        margin-right: 20px;
+                    }
                 }
             }
-        }
 
-        &__right {
-            margin-top: 53px;
-            font-family: 'Roboto';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 28px;
-            color: #41522E;
+            &-right {
+                margin-top: 53px;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 24px;
+                line-height: 28px;
+                color: #41522E;
+            }
         }
     }
 
@@ -85,4 +88,15 @@
         }
     }
 
+}
+
+.favoriteLength {
+    width: 89.06%;
+    margin-top: 0;
+    margin-bottom: 39px;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #424242;
 }
