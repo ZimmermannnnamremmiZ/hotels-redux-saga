@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
+import firebase from "firebase/compat";
 
 import Button from '../../button/Button';
 import './loginForm.scss'
@@ -21,6 +23,14 @@ const MyTextInput = ({ label, ...props }) => {
 
 const LoginForm = () => {
 
+  const {auth} = useSelector(store => store);
+
+  const login = async () => {
+    const provider = new firebase.auth.GoogleAuthProvider()
+    const {user} = await auth.signInWithPopup(provider)
+    console.log(user)
+  }
+
   return (
       <Formik
       initialValues = {{
@@ -36,7 +46,7 @@ const LoginForm = () => {
                   .min(8, 'Не менее 8')
                   .matches(/^[^<\u0400-\u04FF>]+$/, 'Без кириллицы!'),
       })}
-      onSubmit = {values => console.log(JSON.stringify(values, null, 2))}
+      onSubmit = {login}
       >
           <Form className="form">
               <h2 className='form__title'>Simple Hotel Check</h2>
