@@ -11,6 +11,10 @@
 <hr />
 In the project directory, you can run:
 
+### `node server.js`
+
+Запуск сервера для получение фейкового токена для авторизации
+
 ### `npm start`
 
 Runs the app in the development mode.\
