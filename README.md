@@ -6,14 +6,23 @@
 
 Само задание: [Тестовое для Frontend-разработчика (junior).pdf](https://github.com/ZimmermannnnamremmiZ/hotels-redux-saga/files/8511599/Frontend-.junior.pdf)
 
-<hr />
-<hr />
-<hr />
+<br>
+<br>
+<br>
+
 В консоли:
+<hr />
+
+## Обязательно !
 
 ### `node server.js`
 
 Запуск сервера для получение фейкового токена для авторизации
+
+Без него не сможете перейти на страницу с подбором отелей
+<hr />
+<br> 
+
 
 ### `npm start`
 
