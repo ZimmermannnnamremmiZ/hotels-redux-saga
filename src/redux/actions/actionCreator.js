@@ -22,4 +22,4 @@ export const setSearchData = (payload) => ({
 export const setFiltered = (payload) => ({
   type: FILTER_FAVORITE,
   payload
-})
+});

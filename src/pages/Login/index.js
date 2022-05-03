@@ -1,9 +1,13 @@
-import LoginForm from "../../components/forms/loginForm/LoginForm";
 
-const Login = () => {
+import LoginForm from "../../components/forms/loginForm/LoginForm";
+import './login.scss'
+
+const Login = ({setToken}) => {
     return(
-        <div className="container">
-            <LoginForm />
+        <div className="login">
+            <div className="container">
+                <LoginForm setToken={setToken}/>
+            </div>
         </div>
     )
 }

@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
-import { Formik, Form, useField } from 'formik';
+import { useDispatch } from "react-redux";
+// import { useNavigate } from "react-router-dom";
+import { Formik, Form, useField} from 'formik';
 import * as Yup from 'yup';
-import firebase from "firebase/compat";
 
 import Button from '../../button/Button';
 import './loginForm.scss'
@@ -14,22 +14,23 @@ const MyTextInput = ({ label, ...props }) => {
     <>
       <label className={error ? 'form__label red' : 'form__label'} htmlFor={props.name}>{label}</label>
       <input className={error ? 'form__input red' : 'form__input'} {...field} {...props} />
-      {error ? (
-        <div className="form__error">{meta.error}</div>
-      ) : null}
+      {error ? <div className="form__error">{meta.error}</div> : null}
     </>
   );
 };
 
-const LoginForm = () => {
+async function loginUser(credentials) {
+  return fetch('http://localhost:8080/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(credentials)
+  })
+    .then(data => data.json())
+}
 
-  const {auth} = useSelector(store => store);
-
-  const login = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider()
-    const {user} = await auth.signInWithPopup(provider)
-    console.log(user)
-  }
+const LoginForm = ({setToken}) => {
 
   return (
       <Formik
@@ -46,34 +47,39 @@ const LoginForm = () => {
                   .min(8, 'Не менее 8')
                   .matches(/^[^<\u0400-\u04FF>]+$/, 'Без кириллицы!'),
       })}
-      onSubmit = {login}
+      onSubmit={async values => {
+          const token = await loginUser(
+            values.email,
+            values.password
+          );
+          setToken(token);
+      }}
       >
-          <Form className="form">
+        {({values, handleSubmit}) => (<Form className="form" onSubmit = {handleSubmit}>
               <h2 className='form__title'>Simple Hotel Check</h2>
               <div className='form__inputBox'>
-                {/* <label className='form__label' htmlFor="login">Логин</label> */}
                 <MyTextInput
                     label="Логин"
                     id="email"
                     name="email"
-                    type="text"
+                    type="email"
                     autoComplete="off"
+                    value={values.email}
                 />
-                {/* <ErrorMessage component="div" className="form__error" name="email"/> */}
               </div>
               <div className='form__inputBox'>
-                {/* <label className='form__label' htmlFor="password">Пароль</label> */}
                 <MyTextInput
                     label="Пароль"
                     id="password"
                     name="password"
                     type="password"
                     autoComplete="off"
+                    value={values.password}
                 />
-                {/* <ErrorMessage component="div" className="form__error" name="password"/> */}
               </div>
-              <Button inner={'Войти'}/>
+              <Button type="submit" inner={'Войти'}/>
           </Form>
+        )}
       </Formik>
   )
 }
