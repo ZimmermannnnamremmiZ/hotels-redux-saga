@@ -9,7 +9,7 @@
 <hr />
 <hr />
 <hr />
-In the project directory, you can run:
+В консоли:
 
 ### `node server.js`
 
