@@ -1,11 +1,11 @@
-import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
 import { Formik, Form, useField} from 'formik';
 import * as Yup from 'yup';
 
 import Button from '../../button/Button';
 import './loginForm.scss'
 
+
+// для Formik
 const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   const error = meta.touched && meta.error;

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch} from "react-redux";
-import { setFavorite, setFiltered, setHotels } from "../../redux/actions/actionCreator";
+import { setFavorite, setFiltered } from "../../redux/actions/actionCreator";
 
 import getNoun from "../../auxiliary_fn/getNoun";
 import dateFullFormat from "../../auxiliary_fn/date_text";
@@ -26,7 +26,6 @@ const HotelsList = () => {
         const selected = hotelsList.find(el => el.hotelId === id);
         selected.isActive = false;
         dispatch(setFiltered(filtered));
-        // dispatch(setHotels(selected))
     }
 
     return(
