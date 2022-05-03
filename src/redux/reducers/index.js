@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import searchData from './searchData';
 import hotels from './hotels';
 import favorite from './favorite';

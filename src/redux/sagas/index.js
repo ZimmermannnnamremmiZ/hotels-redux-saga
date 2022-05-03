@@ -12,9 +12,9 @@ export function* handleHotels() {
   const favoriteIds = yield Object.values(favoriteList).map(el => el.hotelId)
   const hotels = yield call(getHotels, city, dateApiFormat(checkIn), dateApiFormat(checkOut)); // call - блокирующий эффект (fork - неблокирующий)
 
-  yield put(setHotels(hotels.map(el => {
-    if (favoriteIds.find(item => el.hotelId === item)) el.isActive = true;
-    return el
+  yield put(setHotels(hotels.map(hotel => {
+    if (favoriteIds.find(item => hotel.hotelId === item)) hotel.isActive = true;
+    return hotel
   })))
 }
 

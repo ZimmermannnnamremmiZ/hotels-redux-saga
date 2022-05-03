@@ -1,32 +1,18 @@
-import { useSelector, useDispatch } from "react-redux";
-
-import Header from "./components/header/Header";
-import FindHotelsForm from "./components/forms/findHotelsForm/FindHotelsForm";
-import HotelsList from "./components/hotelsList/HotelsList";
-import LoginForm from "./components/forms/loginForm/LoginForm";
-import Favorite from "./components/favorite/Favorite";
-
-
-// increaseCount, decreaseCount,
-
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Login from "./pages/Login/index";
+import Hotels from "./pages/Hotels/index";
+import useToken from "./components/useToken/useToken";
 
 const App = () => {
+  const { token, setToken } = useToken();
+
 
   return(
-    <>
-    <Header />
-    <div className="container">
-      <div className="left-block flex-col">
-        <FindHotelsForm />
-        <Favorite />
-      </div>
-      {/* <LoginForm /> */}
-
-      <div className="hotelsBlock">
-        <HotelsList />
-      </div>
-    </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={token !== "fake-token-4-8-15-16-23-42" ? <Login setToken={setToken} /> : <Hotels setToken={setToken}/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 
 };
