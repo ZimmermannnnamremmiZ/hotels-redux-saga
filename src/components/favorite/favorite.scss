@@ -1,3 +1,5 @@
+@import '../../style/adaptive.scss';
+
 @mixin rotate($angle) {
     -moz-transform: rotate($angle);
     -ms-transform: rotate($angle);
@@ -14,17 +16,17 @@
     left: 68.01px;
 
     &::after {
-      border-bottom-style: solid;
-      border-bottom-width: $arrowBorderSize;
-      border-right-style: solid;
-      border-right-width: $arrowBorderSize;
-      content: '';
-      display: inline-block;
-      height: $arrowSize;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: $arrowSize;
+        position: absolute;
+        display: inline-block;
+        content: '';
+        left: 0;
+        top: 0;
+        border-bottom-style: solid;
+        border-bottom-width: $arrowBorderSize;
+        border-right-style: solid;
+        border-right-width: $arrowBorderSize;
+        height: $arrowSize;
+        width: $arrowSize;
     }
 
     &.is-top {
@@ -57,8 +59,6 @@
         top: 92px;
         width: 89px;
         height: 28px;
-
-
     }
 
     &__sort {
@@ -131,7 +131,6 @@
         height: 288px;
         margin: 0 auto;
         overflow-y: scroll;
-        margin-top: 152px;
 
         &::-webkit-scrollbar-track {
             background: rgb(0,0,0);
@@ -152,19 +151,34 @@
 
         .hotelItem{
 
+            @include respond-to(1024px) {flex-direction: column};
+            position: relative;
+
             &__leftSide {
                 margin-left: 0;
             }
 
             &__rightSide {
-                right: 0;
+                @include respond-to(1024px) {
+                    flex-direction: row;
+                    margin-top: 10px;
+                };
+                position: static;
+                padding: 0;
+            }
+
+            &__heart-active {
+                margin-left: auto;
+                @include respond-to(1024px) {
+                    margin: 0;
+                    order: 1;
+                    align-self: auto
+                };
+                position: relative;
             }
 
             &__price {
-                position: absolute;
-                width: max-content;
-                right: 0;
-                bottom: -10px;
+                margin-bottom: 0;
             }
         }
     }

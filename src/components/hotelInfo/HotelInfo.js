@@ -12,19 +12,21 @@ const HotelInfo = ({name, checkIn, days, price, stars, id, toFavorite, fromFavor
         <div className="hotelItem">
             <div className="hotelItem__leftSide">
                 <h5 className="hotelItem__name">{name}</h5>
-                    <div className="flex-col">
+                    <div className="hotelItem__checkIn">
                         <div className="flex-row">
-                            <p className="hotelItem__date">{checkIn}</p>
+                            <p className="hotelItem__checkIn-date">{checkIn}</p>
                             <span className="hyphen"></span>
-                            <p className="hotelItem__days">{days} {getNoun(days, 'день', 'дня', 'дней')}</p>
+                            <p className="hotelItem__checkIn-days">{days} {getNoun(days, 'день', 'дня', 'дней')}</p>
                         </div>
-                        <ReactStars count={5}
+                    </div>
+                    <ReactStars className={"hotelItem__rating"}
+                                    count={5}
                                     edit={false}
                                     color1={"#6C6845"}
                                     color2={"#CDBC1E"}
                                     value={stars}
-                                    size={24} />
-                    </div>
+                                    size={24}
+                    />
             </div>
 
             <div className="hotelItem__rightSide">
