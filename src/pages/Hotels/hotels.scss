@@ -1,3 +1,5 @@
+@import "../../style/adaptive.scss";
+
 .hotels {
   background-color:#F4F4F4;
   background-image: none;
@@ -12,4 +14,44 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  .tablet {
+    display: none;
+  
+    @include respond-to(768px) {
+      margin-top: 0px;
+      margin-bottom: 30px;  
+      display: flex;
+      justify-content: space-between;
+      width: 90vw;
+      margin-left: calc(50% - 90vw/2);
+    };
+  
+    button {
+      border: none;
+      background-color: #F4F4F4;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 31px;
+      height: 31px;
+      background-size: 30px 30px;
+    }
+  
+    &__form-btn {
+      background-image: url('../../img/airplane.svg');
+    }
+  
+    &__fav-btn {
+      background-image: url('../../img/favorite.svg');
+    }
+  }
+
+
+}
+
+@include respond-to(768px) {
+  .form-block, .favorite-block {
+    visibility: hidden;
+    position: absolute;
+  }
 }

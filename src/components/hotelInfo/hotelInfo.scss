@@ -1,3 +1,5 @@
+@import '../../style/adaptive.scss';
+
 .hyphen {
     height: 1px;
     width: 9px;
@@ -8,47 +10,70 @@
 
 .hotelItem {
     width: 584px;
-    height: 100px;
+    min-height: 100px;
     font-family: 'Roboto';
     font-style: normal;
     display: flex;
     justify-content: space-between;
 
     &__leftSide {
+        display: flex;
+        flex-direction: column;
         margin-left: 24px;
-        max-width: 385px;
     }
 
     &__rightSide {
-        position: relative;
-        right: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-right: 30px;
     }
 
     &__name {
-        margin: 0;
+        max-width: 300px;
+        @include respond-to(1140px) {max-width: 250px};
+
+        margin: 9px 0 0 0;
         font-weight: 300;
         font-size: 17px;
         line-height: 22px;
         letter-spacing: -0.408px;
         color: #424242;
     }
+    
+    &__checkIn {
 
-    &__date, &__days {
-        margin: 0;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 22px;
-        letter-spacing: -0.408px;
-        color: #878787;
+        // @include respond-to(1080px) {
+        //     position: absolute;
+        //     bottom: 25px
+        // };
+
+        &-date, &-days {
+            margin: 0;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+            letter-spacing: -0.408px;
+            color: #878787;
+        }
+    }
+
+
+
+    &__rating {
+        
+        // @include respond-to(1080px) {
+        //     position: absolute !important;
+        //     bottom: -25px;
+        // }
     }
 
     &__heart {
-        position: absolute;
+        margin-top: 12px;
+        align-self: flex-end;
         background-image: url('../../img/heart.svg');
         background-repeat: no-repeat;
         background-size: contain;
-        top: 5px;
-        right: 0;
         width: 23px;
         height: 19px;
 
@@ -57,20 +82,25 @@
         };
 
         &-active {
-            position: absolute;
+            margin-top: 12px;
+            align-self: flex-end;
             background-image: url('../../img/heart-active.svg');
             background-repeat: no-repeat;
             background-size: contain;
-            top: 5px;
-            right: 0;
             width: 23px;
             height: 19px;
         }
     }
 
     &__price {
-
-        margin-top: 50px;
+        margin: 0 0 10px 0;
+        white-space: nowrap;
+        // @include respond-to(1080px) {
+        //     position: absolute;
+        //     right: 0;
+        //     bottom: 10px;
+        //     margin-bottom: 0;
+        // }
 
         &::before {
             margin-right: 18px;
