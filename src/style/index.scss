@@ -49,3 +49,9 @@ code {
   width: 34.352%;
   @include respond-to(768px) {width: 100%}
 }
+
+.left-block * {
+  @include respond-to(768px) {
+    z-index: 1;
+  }
+}

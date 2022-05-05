@@ -1,4 +1,5 @@
 @import "../../style/adaptive.scss";
+@import "../../style/cross.scss";
 
 .hotels {
   background-color:#F4F4F4;
@@ -17,16 +18,16 @@
 
   .tablet {
     display: none;
-  
+
     @include respond-to(768px) {
       margin-top: 0px;
-      margin-bottom: 30px;  
+      margin-bottom: 30px;
       display: flex;
       justify-content: space-between;
       width: 90vw;
       margin-left: calc(50% - 90vw/2);
     };
-  
+
     button {
       border: none;
       background-color: #F4F4F4;
@@ -36,22 +37,38 @@
       height: 31px;
       background-size: 30px 30px;
     }
-  
+
     &__form-btn {
       background-image: url('../../img/airplane.svg');
     }
-  
+
     &__fav-btn {
       background-image: url('../../img/favorite.svg');
     }
   }
+}
 
-
+.close {
+  display: none;
+  
+  @include respond-to(768px) {
+    @include cross(20px, #000, 2px);
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
 }
 
 @include respond-to(768px) {
   .form-block, .favorite-block {
     visibility: hidden;
     position: absolute;
+    width: 50%;
+  };
+
+  .favorite-block {
+    right: 0;
   }
+
+
 }
