@@ -1,3 +1,6 @@
+@import '../../style/adaptive.scss';
+@import '../../style/calcFluidFontSize.scss';
+
 .header {
   box-sizing: border-box;
   max-width: 1440px;
@@ -14,6 +17,7 @@
   .logo {
     font-weight: 500;
     font-size: 24px;
+    @include respond-to(1140px) {font-size: calcFluidFontSize(20, 22, 380, 1140)};
     line-height: 28px;
     text-decoration: none;
   }

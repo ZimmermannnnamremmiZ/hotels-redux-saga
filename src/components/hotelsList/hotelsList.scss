@@ -1,56 +1,94 @@
-    @import '../../style/adaptive.scss';
-    @import '../../style/calcFluidFontSize.scss';
-    
-    .hotelsBlock {
+@import '../../style/adaptive.scss';
+@import '../../style/calcFluidFontSize.scss';
 
-        &__header {
-            justify-content: space-between;
-            width: 90.06%;
+.hotelsBlock {
 
-            &-left {
-                margin-top: 48px;
-                @include respond-to(768px) {margin-top: 20px}
-                font-family: 'Roboto';
-                font-style: normal;
-                font-weight: 500;
-                font-size: 32px;
-                @include respond-to(1140px) {font-size: calcFluidFontSize(14, 30, 380, 1140)};
-                line-height: 38px;
-                color: #424242;
+    &__header {
+        justify-content: space-between;
+        width: 90.06%;
 
-                span:nth-child(2) {
-                    margin-left: 20px;
+        &-left {
+            margin-top: 48px;
 
-                    &:before {
-                        content: url('../../img/Vector.svg');
-                        margin-right: 20px;
+            @include respond-to(768px) {
+                margin-top: 20px
+            }
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 32px;
+
+            @include respond-to(1140px) {
+                font-size: calcFluidFontSize(20, 30, 380, 1140)
+            }
+
+            ;
+            line-height: 38px;
+            color: #424242;
+
+            span:nth-child(2) {
+                margin-left: 20px;
+
+                @include respond-to(1024px) {
+                    margin-left: 5px;
+                }
+
+                &:before {
+                    content: url('../../img/Vector.svg');
+                    margin-right: 20px;
+
+                    @include respond-to(1024px) {
+                        display: inline-flex;
+                        margin: 1px 10px 0px 0px;
+                        transform: scale(0.8);
+                        width: 4px;
+                    }
+
+                    @include respond-to(900px) {
+                        margin: 1px 8px 0px 0px;
+                        transform: scale(0.5);
+                        width: 4px;
                     }
                 }
             }
+        }
 
-            &-right {
-                margin-top: 53px;
-                @include respond-to(768px) {
-                    margin-top: 20px;
-                    order: -1;
-                }
-                font-family: 'Roboto';
-                font-style: normal;
-                font-weight: 400;
-                font-size: 24px;
-                @include respond-to(1140px) {font-size: calcFluidFontSize(14, 22, 380, 1140)};
-                line-height: 28px;
-                color: #41522E;
+        &-right {
+            margin-top: 55px;
+
+            @include respond-to(768px) {
+                margin-top: 24px;
+                order: -1;
             }
+
+            @include respond-to(600px) {
+                margin-top: 60px;
+                position: absolute;
+            }
+
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+
+            @include respond-to(1140px) {
+                font-size: calcFluidFontSize(20, 22, 380, 1140)
+            }
+
+            ;
+            line-height: 28px;
+            color: #41522E;
         }
     }
+}
 
-    .hotelInfo {
-        height: 529px;
-        width: 90.06%;
-        overflow: scroll;
-        bottom: 52px;
-        overflow-x: hidden;
+.hotelInfo {
+    height: 529px;
+    width: 90.06%;
+    overflow: scroll;
+    bottom: 52px;
+    overflow-x: hidden;
 
 
     hr {
@@ -62,14 +100,16 @@
     }
 
     &::-webkit-scrollbar-track {
-        background: rgb(0,0,0);
+        background: rgb(0, 0, 0);
         border: 4px solid transparent;
         background-clip: content-box;
     }
+
     &::-webkit-scrollbar {
         width: 2px;
 
     }
+
     &::-webkit-scrollbar-thumb {
         background-color: #000000;
         border-radius: 50px;
@@ -79,15 +119,21 @@
     &__card {
         position: relative;
         padding-top: 10px;
+
         @include respond-to(768px) {
             padding-top: 0px;
             height: 130px;
         }
+
         align-items: center;
     }
 
     &__house {
-        @include respond-to(768px) {display: none};
+        @include respond-to(768px) {
+            display: none
+        }
+
+        ;
         position: relative;
         flex-shrink: 0;
         width: 64px;
@@ -108,6 +154,12 @@
     width: 89.06%;
     margin-top: 0;
     margin-bottom: 39px;
+
+    @include respond-to(600px) {
+        margin-bottom: 10px
+    }
+
+    ;
     font-weight: 300;
     font-size: 17px;
     line-height: 22px;

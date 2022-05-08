@@ -1,5 +1,14 @@
 @mixin respond-to($media) {
-    @if $media  == 768px {
+    @if $media  == 480px {
+      @media only screen and (max-width: 480px) { @content; }
+    }
+    @else if $media == 551px  {
+      @media only screen and (max-width: 551px) { @content; }
+    }
+    @else if $media == 600px  {
+      @media only screen and (max-width: 600px) { @content; }
+    }
+    @else if $media == 768px {
       @media only screen and (max-width: 768px) { @content; }
     }
     @else if $media == 800px {
@@ -7,6 +16,9 @@
     }
     @else if $media == 850px {
       @media only screen and (max-width: 850px) { @content; }
+    }
+    @else if $media == 900px {
+      @media only screen and (max-width: 900px) { @content; }
     }
     @else if $media == 1024px {
       @media only screen and (max-width: 1024px) { @content; }

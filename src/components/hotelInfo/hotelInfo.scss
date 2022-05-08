@@ -10,6 +10,7 @@
 
 .hotelItem {
     width: 584px;
+    @include respond-to(768px) {width: 100%}
     min-height: 100px;
     font-family: 'Roboto';
     font-style: normal;
@@ -40,13 +41,8 @@
         letter-spacing: -0.408px;
         color: #424242;
     }
-    
-    &__checkIn {
 
-        // @include respond-to(1080px) {
-        //     position: absolute;
-        //     bottom: 25px
-        // };
+    &__checkIn {
 
         &-date, &-days {
             margin: 0;
@@ -56,16 +52,6 @@
             letter-spacing: -0.408px;
             color: #878787;
         }
-    }
-
-
-
-    &__rating {
-        
-        // @include respond-to(1080px) {
-        //     position: absolute !important;
-        //     bottom: -25px;
-        // }
     }
 
     &__heart {
@@ -95,12 +81,6 @@
     &__price {
         margin: 0 0 10px 0;
         white-space: nowrap;
-        // @include respond-to(1080px) {
-        //     position: absolute;
-        //     right: 0;
-        //     bottom: 10px;
-        //     margin-bottom: 0;
-        // }
 
         &::before {
             margin-right: 18px;
