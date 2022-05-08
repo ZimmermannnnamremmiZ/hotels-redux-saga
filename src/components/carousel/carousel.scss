@@ -1,5 +1,16 @@
+@import '../../style/adaptive.scss';
+
 .alice-carousel {
   width: 90.06%;
   margin: 28px auto;
+  @include respond-to(768px) {margin-top: 60px}
 }
 
+
+.alice-carousel__stage-item {
+
+  & > img {
+    width: 100%;
+  }
+
+}

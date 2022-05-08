@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useMediaQuery } from 'react-responsive'
 
 import FindHotelsForm from "../../components/forms/findHotelsForm/FindHotelsForm";
 import Favorite from "../../components/favorite/Favorite";
@@ -9,19 +8,28 @@ import "./hotels.scss"
 
 const Hotels = ({setToken}) => {
 
-    const [formVisible, setFormVisible] = useState()
-    const [favVisible, setFavVisible] = useState()
+    const [formActive, setFormActive] = useState()
+    const [favActive, setFavActive] = useState()
 
-
-    const isTablet = useMediaQuery({ minWidth: 768})
-
+    // сделал так, чтобы после закрытия модальных окон на крестик, при дальнейшем увеличении разрешения экрана ползунком, они снова отображались
     useEffect(() => {
+
         function handleResize() {
-          return isTablet ? setFormVisible('visible') : setFormVisible('hidden')
+            if (window.screen.width <= 768) {
+                setFormActive(false);
+                setFavActive(false)
+            } else {
+                setFormActive(true);
+                setFavActive(true)
+            }
         }
 
         window.addEventListener('resize', handleResize)
-      })
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+      }, [])
 
 
 
@@ -30,16 +38,16 @@ const Hotels = ({setToken}) => {
             <Header setToken={setToken}/>
             <div className="container">
                 <div className="tablet">
-                        <button className="tablet__form-btn" onClick={() => setFormVisible('visible')}/>
-                        <button className="tablet__fav-btn" onClick={() => setFavVisible('visible')}/>
+                        <button className="tablet__form-btn" onClick={() => setFormActive(true)}/>
+                        <button className="tablet__fav-btn" onClick={() => setFavActive(true)}/>
                 </div>
                 <div className="left-block flex-col">
-                    <div className="form-block" style={{visibility: formVisible}}>
-                        <button className="close" onClick={() => setFormVisible('hidden')} />
+                    <div className={formActive ? `form-block form-block--active` : "form-block"}  >
+                        <button className="close" onClick={() => setFormActive(false)} />
                         <FindHotelsForm />
                     </div>
-                    <div className="favorite-block" style={{visibility: favVisible}}>
-                        <button className="close" onClick={() => setFavVisible('hidden')} />
+                    <div className={favActive ? `favorite-block favorite-block--active` : "favorite-block"}   >
+                        <button className="close" onClick={() => setFavActive(false)} />
                         <Favorite />
                     </div>
                 </div>

@@ -6,7 +6,6 @@ import useToken from "./components/useToken/useToken";
 const App = () => {
   const { token, setToken } = useToken();
 
-
   return(
     <BrowserRouter>
       <Routes>

@@ -2,10 +2,11 @@
 @import "../../style/cross.scss";
 
 .hotels {
-  background-color:#F4F4F4;
+  background-color: #F4F4F4;
   background-image: none;
   position: absolute;
   width: 100vw;
+  min-height: 100%;
   background-attachment: fixed;
   background-size: cover;
   backdrop-filter: blur(20px);
@@ -24,33 +25,46 @@
       margin-bottom: 30px;
       display: flex;
       justify-content: space-between;
-      width: 90vw;
-      margin-left: calc(50% - 90vw/2);
-    };
+      width: 100%;
+    }
+
+    ;
 
     button {
-      border: none;
       background-color: #F4F4F4;
       background-repeat: no-repeat;
       background-position: center;
-      width: 31px;
-      height: 31px;
+      width: 100px;
+      height: 50px;
       background-size: 30px 30px;
+      border-style: solid;
+      border-color: #000000;
+
+      &:hover {
+        background-color: #d3d3e2;
+      }
     }
 
     &__form-btn {
       background-image: url('../../img/airplane.svg');
+      width: 100px;
+      border-style: solid;
+      border-color: #000000;
+      border-width: 1px 1px 1px 0;
     }
 
     &__fav-btn {
       background-image: url('../../img/favorite.svg');
+      border-style: solid;
+      border-color: #000000;
+      border-width: 1px 0 1px 1px;
     }
   }
 }
 
 .close {
   display: none;
-  
+
   @include respond-to(768px) {
     @include cross(20px, #000, 2px);
     position: absolute;
@@ -59,16 +73,64 @@
   }
 }
 
-@include respond-to(768px) {
-  .form-block, .favorite-block {
+.form-block,
+.favorite-block {
+
+  @include respond-to(768px) {
     visibility: hidden;
     position: absolute;
     width: 50%;
-  };
-
-  .favorite-block {
-    right: 0;
   }
 
+  ;
 
+  @include respond-to(600px) {
+    width: 100%
+  }
+
+}
+
+.form-block {
+
+
+  &--active {
+    @include respond-to(768px) {
+      visibility: visible;
+      animation-duration: 0.5s;
+      animation-name: form-animation-open;
+    }
+  }
+
+}
+
+.favorite-block {
+  right: 0;
+
+  &--active {
+    @include respond-to(768px) {
+      visibility: visible;
+      animation-duration: 0.5s;
+      animation-name: favorite-animation-open;
+    }
+  }
+}
+
+@keyframes form-animation-open {
+  from {
+    transform: rotateX(180deg) translateX(-100%);
+  }
+
+  to {
+    transform: rotateX(360deg) translateX(0);
+  }
+}
+
+@keyframes favorite-animation-open {
+  from {
+    transform: rotateX(180deg) translateX(100%);
+  }
+
+  to {
+    transform: rotateX(360deg) translateX(0);
+  }
 }

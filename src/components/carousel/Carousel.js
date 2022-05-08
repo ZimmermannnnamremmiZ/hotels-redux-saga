@@ -27,11 +27,16 @@ const Carousel = () => {
   return (
     <AliceCarousel mouseTracking
                    responsive={{
-                      640: {items: 2.1},
-                      740: {items: 2.4},
+                      0: {items: 1.5},
+                      420: {items: 2},
+                      480: {items: 2.4},
+                      515: {items: 2.7},
+                      600: {items: 3.1},
+                      653: {items: 3.5},
+                      768: {items: 2.4},
                       850: {items: 2.8},
                       945: {items: 3.1},
-                      1080: {items: 3.5},
+                      1080: {items: 3.4},
                    }}
                    disableButtonsControls={true}
                    disableDotsControls={true}
